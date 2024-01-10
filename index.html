@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: blueviolet;
+    }
+
+    .container {
+      background-color: #fff;
+      margin: 0 auto;
+      margin-top: 150px;
+      width: 500px;
+      height: 170px;
+      border-radius: 10px;
+      position: relative;
+      padding: 10px;
+    }
+
+    .one {
+      margin-top: 5px;
+    }
+
+    .one,
+    .two,
+    .three {
+      margin-left: 10px;
+      margin-top: 5px;
+    }
+
+    .two-title {
+      opacity: 0.5;
+    }
+
+    .three-title {
+      opacity: 0.5;
+    }
+
+    span {
+      font-size: 24px;
+      background-color: rgb(61, 61, 255);
+      border-radius: 50%;
+    }
+
+    .hidden-groups {
+      position: absolute;
+      top: 10px;
+      left: 300px;
+    }
+
+    .one-hidden-groups {
+      opacity: 1;
+    }
+
+    .two-hidden-groups {
+      opacity: 0;
+    }
+
+    .three-hidden-groups {
+      opacity: 0;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 5px;
+    }
+
+    .four {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="one">
+      <h2 class="one-title"><span class="one-span">1</span> Choose title</h2>
+      <div class="hidden-groups one-hidden-groups">
+        <p class="one-text">Choose title content</p>
+        <button class="one-btn">Submit title</button>
+      </div>
+    </div>
+    <div class="two">
+      <h2 class="two-title"><span>2</span> Choose description</h2>
+      <div class="hidden-groups two-hidden-groups">
+        <p class="two-text">Choose description content</p>
+        <button class="two-btn-1">Back</button>
+        <button class="two-btn-2">Submit description</button>
+      </div>
+    </div>
+    <div class="three">
+      <h2 class="three-title"><span>3</span> Confirm data</h2>
+      <div class="hidden-groups three-hidden-groups">
+        <p class="three-text">Are you happy now?</p>
+        <button class="three-btn-1">No,go back</button>
+        <button class="three-btn-2">Yes,go ahead</button>
+      </div>
+    </div>
+    <div class="hidden-groups four">
+      <p class="four-text">Ok,we're done.Thanks for sending us your data!</p>
+    </div>
+  </div>
+  <script>
+
+    //element
+    const elOneHiddenGroups = document.querySelector(".one-hidden-groups");
+    const elTwoHiddenGroups = document.querySelector(".two-hidden-groups");
+    const elThreeHiddenGroups = document.querySelector(".three-hidden-groups");
+    const elFour = document.querySelector(".four");
+    const elOneTitle = document.querySelector(".one-title");
+    const elTwoTitle = document.querySelector(".two-title");
+    const elThreeTitle = document.querySelector(".three-title");
+
+    //btns
+    const elOneBtn = document.querySelector(".one-btn");
+    const elTwoBtnOne = document.querySelector(".two-btn-1");
+    const elTwoBtnTwo = document.querySelector(".two-btn-2");
+    const elThreeBtnOne = document.querySelector(".three-btn-1");
+    const elThreeBtnTwo = document.querySelector(".three-btn-2");
+
+    // events
+    elOneBtn.addEventListener("click", function () {
+      two();
+    });
+
+    elTwoBtnOne.addEventListener("click", function () {
+      one();
+    });
+
+    elTwoBtnTwo.addEventListener("click", function () {
+      three();
+    });
+
+    elThreeBtnOne.addEventListener("click", function () {
+      two();
+    });
+
+    elThreeBtnTwo.addEventListener("click", function () {
+      four();
+    });
+    elOneTitle.addEventListener("click",function () {
+      one();
+    });
+    elTwoTitle.addEventListener("click",function() {
+      two();
+    });
+    elThreeTitle.addEventListener("click",function() {
+      three();
+    });
+
+
+    // functions
+    function one() {
+      elOneHiddenGroups.style.opacity = 1;
+      elTwoHiddenGroups.style.opacity = 0;
+      elThreeHiddenGroups.style.opacity = 0;
+      elFour.style.opacity = 0;
+      elOneTitle.style.opacity = 1;
+      elTwoTitle.style.opacity = 0.5;
+      elThreeTitle.style.opacity = 0.5;
+    }
+
+    function two() {
+      elOneHiddenGroups.style.opacity = 0;
+      elTwoHiddenGroups.style.opacity = 1;
+      elThreeHiddenGroups.style.opacity = 0;
+      elFour.style.opacity = 0;
+      elOneTitle.style.opacity = 1;
+      elTwoTitle.style.opacity = 1;
+      elThreeTitle.style.opacity = 0.5;
+    }
+
+    function three() {
+      elOneHiddenGroups.style.opacity = 0;
+      elTwoHiddenGroups.style.opacity = 0;
+      elThreeHiddenGroups.style.opacity = 1;
+      elFour.style.opacity = 0;
+      elOneTitle.style.opacity = 1;
+      elTwoTitle.style.opacity = 1;
+      elThreeTitle.style.opacity = 1;
+    }
+    function four() {
+      elOneHiddenGroups.style.opacity = 0;
+      elTwoHiddenGroups.style.opacity = 0;
+      elThreeHiddenGroups.style.opacity = 0;
+      elFour.style.opacity = 1;
+      elOneTitle.style.opacity = 1;
+      elTwoTitle.style.opacity = 1;
+      elThreeTitle.style.opacity = 1;
+    }
+  </script>
+</body>
+
+</html>
